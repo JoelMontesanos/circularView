@@ -1,0 +1,7 @@
+{
+    "/clouthes/*":{
+        "target": "https://circularm360.herokuapp.com",
+        "secure":false,
+        "logLevel": "debug"
+    }
+}

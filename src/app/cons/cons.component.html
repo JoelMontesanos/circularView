@@ -1,0 +1,354 @@
+<style>
+#customers {
+    text-align: center;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+    width: 100%;
+  }
+  #customers td, #customers th {
+    padding: 3px;
+    font-size: 11px;
+    width: 50px;
+    word-wrap: break-word;
+  }
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  #customers tr:hover {background-color: #ddd;}
+  #customers th {
+    text-align: center;
+    width: 5px;
+    padding-top: 5px;
+    padding-bottom: 12px;
+    text-align: center;
+    color: black;
+  }
+  </style>
+<div class="" >
+<table id="customers" >
+    <thead>
+      <tr>
+        <th scope="col">Prenda</th>
+        <th scope="col">Marca</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Valor Original</th>
+        <th scope="col">Valor Prenda</th>
+        <th scope="col">Crédito Cliente</th>
+        <th scope="col">Valor Tienda</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>1</th> <!-- Inicio parte uno -->
+        <th scope="row">
+            <select [(ngModel)]="marcaSelected" (ngModelChange)=saberMarca($event) style="width: 100px;" id="marca" name="marca">
+                <option *ngFor="let marca of marcas" [ngValue]="marca">{{marca.marca}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <select [(ngModel)]="tipoSelected" (ngModelChange)=saberTipo($event) style="width: 100px;">
+                <option *ngFor="let ti of tip" [value]="ti.nombre">{{ti.nombre}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <select [(ngModel)]="estadoSelected" (ngModelChange)=saberEstado($event) style="width: 100px;">
+                <option *ngFor="let ed of edo" [value]="ed.nombre">{{ed.nombre}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <label>{{valO.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{valP.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{creditoC.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{valT.toFixed(2)}}</label>
+        </th>
+      </tr>
+      <tr>
+        <th>2</th> <!-- Inicio parte dos -->
+        <th scope="row">
+            <select [(ngModel)]="marcaSelected2" (ngModelChange)=saberMarca2($event) style="width: 100px;" id="marca2" name="marca2">
+                <option *ngFor="let marca2 of marcas" [ngValue]="marca2">{{marca2.marca}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <select [(ngModel)]="tipoSelected2" (ngModelChange)=saberTipo2($event) style="width: 100px;">
+                <option *ngFor="let ti2 of tip" [value]="ti2.nombre">{{ti2.nombre}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <select [(ngModel)]="estadoSelected2" (ngModelChange)=saberEstado2($event) style="width: 100px;">
+                <option *ngFor="let edos2 of edo" [value]="edos2.nombre">{{edos2.nombre}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <label>{{valorOriginal2.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{valorPrenda2.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{creditoCliente2.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{valorTienda2.toFixed(2)}}</label>
+        </th>
+      </tr>
+      <tr>
+        <th>3</th><!-- Inicio parte tres -->
+        <th scope="row">
+            <select [(ngModel)]="marcaSelected3" (ngModelChange)=saberMarca3($event) style="width: 100px;" id="marca3" name="marca3">
+                <option *ngFor="let marca3 of marcas" [ngValue]="marca3">{{marca3.marca}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <select [(ngModel)]="tipoSelected3" (ngModelChange)=saberTipo3($event) style="width: 100px;">
+                <option *ngFor="let ti3 of tip" [value]="ti3.nombre">{{ti3.nombre}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <select [(ngModel)]="estadoSelected3" (ngModelChange)=saberEstado3($event) style="width: 100px;">
+                <option *ngFor="let edos3 of edo" [value]="edos3.nombre">{{edos3.nombre}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <label>{{valorOriginal3.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{valorPrenda3.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{creditoCliente3.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{valorTienda3.toFixed(2)}}</label>
+        </th>
+      </tr>
+      <tr>
+        <th>4</th><!-- Inicio parte cuatro -->
+        <th scope="row">
+            <select [(ngModel)]="marcaSelected4" (ngModelChange)=saberMarca4($event) style="width: 100px;" id="marca4" name="marca4">
+                <option *ngFor="let marca4 of marcas" [ngValue]="marca4">{{marca4.marca}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <select [(ngModel)]="tipoSelected4" (ngModelChange)=saberTipo4($event) style="width: 100px;">
+                <option *ngFor="let ti4 of tip" [value]="ti4.nombre">{{ti4.nombre}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <select [(ngModel)]="estadoSelected4" (ngModelChange)=saberEstado4($event) style="width: 100px;">
+                <option *ngFor="let edos4 of edo" [value]="edos4.nombre">{{edos4.nombre}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <label>{{valorOriginal4.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{valorPrenda4.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{creditoCliente4.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{valorTienda4.toFixed(2)}}</label>
+        </th>
+      </tr>
+      <tr>
+        <th>5</th><!-- Inicio parte Cinco -->
+        <th scope="row">
+            <select [(ngModel)]="marcaSelected5" (ngModelChange)=saberMarca5($event) style="width: 100px;" id="marca5" name="marca5">
+                <option *ngFor="let marca5 of marcas" [ngValue]="marca5">{{marca5.marca}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <select [(ngModel)]="tipoSelected5" (ngModelChange)=saberTipo5($event) style="width: 100px;">
+                <option *ngFor="let ti5 of tip" [value]="ti5.nombre">{{ti5.nombre}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <select [(ngModel)]="estadoSelected5" (ngModelChange)=saberEstado5($event) style="width: 100px;">
+                <option *ngFor="let edos5 of edo" [value]="edos5.nombre">{{edos5.nombre}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <label>{{valorOriginal5.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{valorPrenda5.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{creditoCliente5.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{valorTienda5.toFixed(2)}}</label>
+        </th>
+      </tr>
+      <tr>
+        <th>6</th><!-- Inicio parte Seis -->
+        <th scope="row">
+            <select [(ngModel)]="marcaSelected6" (ngModelChange)=saberMarca6($event) style="width: 100px;" id="marca6" name="marca6">
+                <option *ngFor="let marca6 of marcas" [ngValue]="marca6">{{marca6.marca}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <select [(ngModel)]="tipoSelected6" (ngModelChange)=saberTipo6($event) style="width: 100px;">
+                <option *ngFor="let ti6 of tip" [value]="ti6.nombre">{{ti6.nombre}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <select [(ngModel)]="estadoSelected6" (ngModelChange)=saberEstado6($event) style="width: 100px;">
+                <option *ngFor="let edos6 of edo" [value]="edos6.nombre">{{edos6.nombre}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <label>{{valorOriginal6.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{valorPrenda6.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{creditoCliente6.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{valorTienda6.toFixed(2)}}</label>
+        </th>
+      </tr>
+      <tr>
+        <th>7</th><!-- Inicio parte Siete -->
+        <th scope="row">
+            <select [(ngModel)]="marcaSelected7" (ngModelChange)=saberMarca7($event) style="width: 100px;" id="marca7" name="marca7">
+                <option *ngFor="let marca7 of marcas" [ngValue]="marca7">{{marca7.marca}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <select [(ngModel)]="tipoSelected7" (ngModelChange)=saberTipo7($event) style="width: 100px;">
+                <option *ngFor="let ti7 of tip" [value]="ti7.nombre">{{ti7.nombre}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <select [(ngModel)]="estadoSelected7" (ngModelChange)=saberEstado7($event) style="width: 100px;">
+                <option *ngFor="let edos7 of edo" [value]="edos7.nombre">{{edos7.nombre}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <label>{{valorOriginal7.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{valorPrenda7.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{creditoCliente7.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{valorTienda7.toFixed(2)}}</label>
+        </th>
+      </tr>
+      <tr>
+        <th>8</th><!-- Inicio parte Ocho -->
+        <th scope="row">
+            <select [(ngModel)]="marcaSelected8" (ngModelChange)=saberMarca8($event) style="width: 100px;" id="marca8" name="marca8">
+                <option *ngFor="let marca8 of marcas" [ngValue]="marca8">{{marca8.marca}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <select [(ngModel)]="tipoSelected8" (ngModelChange)=saberTipo8($event) style="width: 100px;">
+                <option *ngFor="let ti8 of tip" [value]="ti8.nombre">{{ti8.nombre}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <select [(ngModel)]="estadoSelected8" (ngModelChange)=saberEstado8($event) style="width: 100px;">
+                <option *ngFor="let edos8 of edo" [value]="edos8.nombre">{{edos8.nombre}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <label>{{valorOriginal8.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{valorPrenda8.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{creditoCliente8.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{valorTienda8.toFixed(2)}}</label>
+        </th>
+      </tr>
+      <tr>
+        <th>9</th><!-- Inicio parte Nueve -->
+        <th scope="row">
+            <select [(ngModel)]="marcaSelected9" (ngModelChange)=saberMarca9($event) style="width: 100px;" id="marca9" name="marca9">
+                <option *ngFor="let marca9 of marcas" [ngValue]="marca9">{{marca9.marca}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <select [(ngModel)]="tipoSelected9" (ngModelChange)=saberTipo9($event) style="width: 100px;">
+                <option *ngFor="let ti9 of tip" [value]="ti9.nombre">{{ti9.nombre}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <select [(ngModel)]="estadoSelected9" (ngModelChange)=saberEstado9($event) style="width: 100px;">
+                <option *ngFor="let edos9 of edo" [value]="edos9.nombre">{{edos9.nombre}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <label>{{valorOriginal9.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{valorPrenda9.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{creditoCliente9.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{valorTienda9.toFixed(2)}}</label>
+        </th>
+      </tr>
+      <tr>
+        <th>10</th><!-- Inicio parte Diez -->
+        <th scope="row">
+            <select [(ngModel)]="marcaSelected10" (ngModelChange)=saberMarca10($event) style="width: 100px;" id="marca10" name="marca10">
+                <option *ngFor="let marca10 of marcas" [ngValue]="marca10">{{marca10.marca}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <select [(ngModel)]="tipoSelected10" (ngModelChange)=saberTipo10($event) style="width: 100px;">
+                <option *ngFor="let ti10 of tip" [value]="ti10.nombre">{{ti10.nombre}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <select [(ngModel)]="estadoSelected10" (ngModelChange)=saberEstado10($event) style="width: 100px;">
+                <option *ngFor="let edos10 of edo" [value]="edos10.nombre">{{edos10.nombre}}</option>
+            </select>
+        </th>
+        <th scope="row">
+            <label>{{valorOriginal10.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{valorPrenda10.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{creditoCliente10.toFixed(2)}}</label>
+        </th>
+        <th scope="row">
+            <label>{{valorTienda10.toFixed(2)}}</label>
+        </th>
+      </tr>
+      <tr>
+          <td>11</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Total</td>
+          <td><b>{{valorTotalPrenda.toFixed(2)}}</b></td>
+          <td><b>{{creditoTotalCLiente.toFixed(2)}}</b></td>
+          <td><b>{{valorTotalTienda.toFixed(2)}}</b></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

@@ -1,0 +1,18 @@
+<div class=" col-md-3" *ngFor="let product of products">
+    <div class="card text-center">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+            {{product.marca}}
+            <button class="btn btn-danger" (click)="deleteProduct(product.id)">
+                Delete
+                <i class="far fa-trash-alt"></i>
+            </button>
+        </div>
+        <img [src]="product.image" clas="img-top" style="width: auto; height:200px;">
+        <div class="card-body">
+            <a class="btn btn-info btn-block" [routerLink]="['/clouthes/edit/',product.id]">
+                EDITAR MARCA
+            </a>
+        </div>
+    </div>
+</div>
+<br>
